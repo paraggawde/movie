@@ -7,7 +7,7 @@
         <div id="movieDisplay" v-for="movie in movies">
             <p>{{movie.title}}</p>
             <p>{{movie.vote_average}}</p>
-            <!-- <p>{{movieDescription}}</p> -->
+            <p>{{movie.overview}}</p>
         </div>
     </div>
 </template>
@@ -21,9 +21,6 @@ export default {
     return {
       inputTitle: "",
       movies:"",
-    //   movieTitle: "",
-    //   movieRating: "",
-    //   movieDescription: ""
     };
   },
   methods: {
@@ -33,9 +30,6 @@ export default {
         )
         .then((response) => {
             this.movies = response.data.results;
-        //   this.movieTitle = response.data.results[0].title;
-        //   this.movieRating = response.data.results[0].vote_average;
-        //   this.movieDescription = response.data.results[0].overview
         });
     }
   }
