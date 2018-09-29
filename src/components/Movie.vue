@@ -5,7 +5,7 @@
             <input type="submit" value="Submit">
         </form>
         <div id="movieDisplay" v-for="movie in movies">
-            <p>{{movie.title}}</p>
+            <p> {{movie.title}}</p>
             <p>{{movie.vote_average}}</p>
             <p>{{movie.overview}}</p>
         </div>
