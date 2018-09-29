@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'Movie',
-    data(){
+    data: function(){
         return{
             movieTitle: ''
         }

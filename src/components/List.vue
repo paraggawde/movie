@@ -1,8 +1,8 @@
 <template>
     <div id="List">
         <ul>
-            <li v-for="movie in movies" :v-bind="movie.title">
-                {{movie.original_title}}
+            <li v-for="movie in movies" :v-bind='movie.title'>
+                <span>{{movie}}</span>
             </li>
         </ul>
     </div>
@@ -15,8 +15,8 @@ export default {
 
   data() {
     return {
-      movies:[],
-      movie:''
+        movie:'',
+        movies:[]
     };
   }
 };
