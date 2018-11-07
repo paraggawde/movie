@@ -1,38 +1,76 @@
 <template>
     <div id="Movie">
-        <form v-on:submit.prevent='getMovieList(inputTitle)'>
-            <input type="text" v-model="inputTitle">
+        <form v-on:submit.prevent='getMovieList(inputTitle)' class="form">
+            <input type="text" v-model="inputTitle" style="margin-right: 10px;">
             <input type="submit" value="Submit">
         </form>
-        <div id="movieDisplay" v-for="movie in movies">
-            <p> {{movie.title}}</p>
-            <p>{{movie.vote_average}}</p>
-            <p>{{movie.overview}}</p>
-        </div>
+            <div id="movieDisplay" v-for="movie in movies" class="card">
+                <p class="card-title"> {{movie.title}}</p>
+                <p> <b>Ratings:</b> {{movie.vote_average}}</p>
+                <p class="card-detail"> <b>Description:</b> {{movie.overview}}</p>
+            </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Movie",
   data: function() {
     return {
       inputTitle: "",
-      movies:"",
+      movies: ""
     };
   },
   methods: {
     getMovieList: function(inputTitle) {
-      axios.get("https://api.themoviedb.org/3/search/movie?api_key=7b83dfba4032b1b1d48a4e350ad6b79d&query=" +
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/movie?api_key=7b83dfba4032b1b1d48a4e350ad6b79d&query=" +
             inputTitle
         )
-        .then((response) => {
-            this.movies = response.data.results;
+        .then(response => {
+          this.movies = response.data.results;
         });
     }
   }
 };
 </script>
 
+<style scoped>
+.form {
+  padding-bottom: 15px;
+}
+.form input[type="text"]{
+    height: 20px;
+    width: 250px;
+}
+.form input[type="submit"]{
+    height: 30px;
+    font-size: 15px;
+}
+.space {
+  padding-bottom: 15px;
+}
+.card {
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+.card-detail {
+	position: relative;
+	padding: 10px;
+	display: table-cell;
+	vertical-align: top;
+	line-height: 1.4;
+	color: #333;
+}
+.card-title {
+	font-size: 19px;
+	font-weight: 600;
+	color: #cb202d;
+}
+</style>

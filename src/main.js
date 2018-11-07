@@ -1,7 +1,11 @@
 import Vue from 'vue'
+import Bootstrap from 'bootstrap'
+import BootstrapVue from 'bootstrap-vue'
+import jQuery from 'jquery'
 import App from './App.vue'
 import axios from 'axios'
 
+Vue.prototype.Bootstrap = Bootstrap
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 

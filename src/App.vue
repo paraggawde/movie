@@ -1,5 +1,5 @@
-<template>
-  <div id="app">
+<template class="card">
+  <div id="app" class="card-body">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Movie Revue App</h1>
     <h3>The best place to get Movie Reviews</h3>
@@ -19,7 +19,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 #app {
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
