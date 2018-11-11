@@ -1,4 +1,6 @@
-# movie
+# Movie Revue App
+### Gives movie reviews of the valid movie searched
+### Created with Vue.js, Bootstrap and TMDB API
 
 ## Project setup
 ```
