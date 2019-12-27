@@ -5,7 +5,7 @@
             <input type="submit" value="Submit">
         </form>
             <div id="movieDisplay" v-for="movie in movies" class="card">
-              <img v-src='moviePoster'>
+              <img :src="imagePath + movie.poster_path">
                 <p class="card-title"> {{movie.title}}</p>
                 <p> <b>Ratings:</b> {{movie.vote_average}}</p>
                 <p class="card-detail"> <b>Description:</b> {{movie.overview}}</p>
@@ -22,7 +22,7 @@ export default {
     return {
       inputTitle: "",
       movies: "",
-      moviePoster: ""
+      imagePath: "http://image.tmdb.org/t/p/w185//"
     };
   },
   methods: {
@@ -34,16 +34,8 @@ export default {
         )
         .then(response => {
           this.movies = response.data.results;
-          // console.log(poster(this.movies));
-          // var moviePoster = 'https://image.tmdb.org/t/p/w500/' + this.movies.poster_path;
-          // console.log(moviePoster);
         });
     },
-    poster(movies){
-      if(movies.poster_path){
-        moviePoster = this.movies.poster_path;
-      }
-    }
   }
 }
 </script>
